@@ -2,7 +2,6 @@ package com.xbisme.quizzapp.Question;
 
 public class FilmQues {
 
-    public class AndroidQues {
         public static String[] easy_question = {
                 "Minh Tâm rất gà có đúng không?",
                 "Minh Đức là em Minh Tâm đúng không?",
@@ -45,6 +44,4 @@ public class FilmQues {
                 "Sai",
                 "Đúng"
         };
-    }
-
 }
