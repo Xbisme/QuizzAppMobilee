@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">QuizzApp</string>
+    <string name="android">Android</string>
+    <string name="anime">Anime</string>
+    <string name="documentary">Documentary</string>
+    <string name="film">Film</string>
+    <string name="game">Game</string>
+    <string name="ios">Ios</string>
+    <string name="play">Chơi</string>
+    <string name="history">Lịch sử chơi</string>
+    <string name="choose_topic">Bạn muốn trả lời chủ đề nào?</string>
+    <string name="choose_level">Chọn cấp độ mà bạn muốn chơi</string>
+    <string name="easy">Dễ</string>
+    <string name="normal">Trung Bình</string>
+    <string name="hard">Khó</string>
+    <string name="True">Đúng</string>
+    <string name="False">Sai</string>
+    <string name="finish">Hoàn Thành</string>
+    <string name="share">Chia sẻ thành tích</string>
+    <string name="result_first">Bạn đã trả lời đúng</string>
+    <string name="question">câu hỏi</string>
 </resources>

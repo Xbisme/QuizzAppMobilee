@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".Fragment.Answer">
+
+    <TextView
+        android:id="@+id/textview_main_answer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:padding="30dp"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:fontFamily="sans-serif-condensed-light"
+        android:textColor="@color/black"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/True"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_button"
+        android:drawableEnd="@drawable/tick"
+        android:fontFamily="sans-serif-black"
+        android:layout_below="@+id/textview_main_answer"
+        android:paddingHorizontal="50dp"
+        android:paddingVertical="25dp"
+        android:text="@string/True"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="@color/kelly_blue"
+        android:textSize="20sp"
+        android:layout_marginBottom="20sp"
+        android:layout_marginTop="130dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/False"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_button"
+        android:layout_below="@+id/True"
+        android:textAlignment="viewStart"
+        android:text="@string/False"
+        android:drawableEnd="@drawable/falsetick"
+        android:paddingHorizontal="50dp"
+        android:paddingVertical="25dp"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif-black"
+        android:textAllCaps="false"
+        android:textColor="@color/kelly_blue"
+        />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/False"
+        android:layout_marginVertical="150dp"/>
+</RelativeLayout>

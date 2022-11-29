@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.ChooseLevel"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/textview_main_level"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="30dp"
+        android:padding="30dp"
+        android:textSize="50sp"
+        android:gravity="center"
+        android:text="@string/choose_level"
+        android:fontFamily="sans-serif-condensed-light"
+        android:textColor="@color/black"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/easy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/easy"
+        android:background="@drawable/shape_button"
+        android:layout_marginBottom="15dp"
+        android:textAlignment="viewStart"
+        android:drawableEnd="@drawable/easy"
+        android:paddingHorizontal="50dp"
+        android:paddingVertical="25dp"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif-black"
+        android:textAllCaps="false"
+        android:textColor="@color/kelly_blue"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/normal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/normal"
+        android:background="@drawable/shape_button"
+        android:layout_marginBottom="15dp"
+        android:textAlignment="viewStart"
+        android:drawableEnd="@drawable/normal"
+        android:paddingHorizontal="50dp"
+        android:paddingVertical="25dp"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif-black"
+        android:textAllCaps="false"
+        android:textColor="@color/kelly_blue"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/hard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hard"
+        android:background="@drawable/shape_button"
+        android:layout_marginBottom="15dp"
+        android:textAlignment="viewStart"
+        android:drawableEnd="@drawable/hard"
+        android:paddingHorizontal="50dp"
+        android:paddingVertical="25dp"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif-black"
+        android:textAllCaps="false"
+        android:textColor="@color/kelly_blue"
+        />
+</LinearLayout>

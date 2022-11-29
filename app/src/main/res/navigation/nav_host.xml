@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_host"
+    app:startDestination="@id/chooseTopic">
+
+    <fragment
+        android:id="@+id/chooseTopic"
+        android:name="com.xbisme.quizzapp.Fragment.ChooseTopic"
+        android:label="fragment_choose_topic"
+        tools:layout="@layout/fragment_choose_topic" >
+        <action
+            android:id="@+id/action_chooseTopic_to_chooseLevel"
+            app:destination="@id/chooseLevel" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseLevel"
+        android:name="com.xbisme.quizzapp.Fragment.ChooseLevel"
+        android:label="fragment_choose_level"
+        tools:layout="@layout/fragment_choose_level" >
+        <action
+            android:id="@+id/action_chooseLevel_to_answer"
+            app:destination="@id/answer" />
+    </fragment>
+    <fragment
+        android:id="@+id/answer"
+        android:name="com.xbisme.quizzapp.Fragment.Answer"
+        android:label="fragment_answer"
+        tools:layout="@layout/fragment_answer" >
+        <action
+            android:id="@+id/action_answer_to_result"
+            app:destination="@id/result" />
+    </fragment>
+    <fragment
+        android:id="@+id/result"
+        android:name="com.xbisme.quizzapp.Fragment.Result"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/action_result_to_chooseTopic"
+            app:destination="@id/chooseTopic" />
+    </fragment>
+</navigation>
