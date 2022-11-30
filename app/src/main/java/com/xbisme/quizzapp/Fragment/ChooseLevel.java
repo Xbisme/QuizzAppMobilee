@@ -2,65 +2,48 @@ package com.xbisme.quizzapp.Fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.xbisme.quizzapp.R;
+import com.xbisme.quizzapp.ViewModel.Topic_Level_ViewModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ChooseLevel#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class ChooseLevel extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public ChooseLevel() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ChooseLevel.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ChooseLevel newInstance(String param1, String param2) {
-        ChooseLevel fragment = new ChooseLevel();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
+public class ChooseLevel extends Fragment implements View.OnClickListener{
+    TextView easyLv;
+    TextView normalLv;
+    TextView hardLv;
+    Topic_Level_ViewModel viewModel;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_choose_level, container, false);
+        View v = inflater.inflate(R.layout.fragment_choose_level, container, false);
+
+        return v;
+    }
+    public void onViewCreated(@NonNull View v, @Nullable Bundle saveInstanceState) {
+        super.onViewCreated(v,saveInstanceState);
+        easyLv = v.findViewById(R.id.easy);
+        normalLv = v.findViewById(R.id.normal);
+        hardLv = v.findViewById(R.id.hard);
+        easyLv.setOnClickListener(this);
+        normalLv.setOnClickListener(this);
+        hardLv.setOnClickListener(this);
+        viewModel = new ViewModelProvider(requireActivity()).get(Topic_Level_ViewModel.class);
+    }
+
+    @Override
+    public void onClick(View view) {
+        AppCompatButton button = (AppCompatButton) view;
+        viewModel.setLevel(button.getText().toString());
+        Navigation.findNavController(button).navigate(R.id.action_chooseLevel_to_answer);
     }
 }
