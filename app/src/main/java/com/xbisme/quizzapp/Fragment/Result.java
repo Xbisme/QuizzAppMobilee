@@ -1,66 +1,65 @@
 package com.xbisme.quizzapp.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.xbisme.quizzapp.MainActivity;
 import com.xbisme.quizzapp.R;
+import com.xbisme.quizzapp.ViewModel.Topic_Level_ViewModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Result#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class Result extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public Result() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Result.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Result newInstance(String param1, String param2) {
-        Result fragment = new Result();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private Topic_Level_ViewModel viewModel;
+    private Integer score;
+    private AppCompatButton finish;
+    private AppCompatButton share;
+    private TextView textView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_result, container, false);
+    }
+    @Override
+    public void onViewCreated(@NonNull View v, @Nullable Bundle saveInstanceState) {
+        super.onViewCreated(v,saveInstanceState);
+        finish = v.findViewById(R.id.finish);
+        share = v.findViewById(R.id.share);
+        textView =v.findViewById(R.id.score);
+        textView.setText(MainActivity.getScore().toString() + "/5");
+        String share_text = "Tôi đã trả lời đúng " + textView.getText().toString() +
+                " câu hỏi cấp độ " + MainActivity.getLevel().toString() +
+                " ở chủ đề " + MainActivity.getTopic().toString();
+        viewModel = new ViewModelProvider(requireActivity()).get(Topic_Level_ViewModel.class);
+        finish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(finish).navigate(R.id.action_result_to_chooseTopic);
+            }
+        });
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent send_intent = new Intent(Intent.ACTION_SEND);
+                System.out.println(share_text);
+                send_intent.putExtra(Intent.EXTRA_TEXT,share_text);
+                send_intent.setType("text/plain");
+                Intent shareIntent = Intent.createChooser(send_intent,null);
+                startActivity(shareIntent);
+            }
+        });
     }
 }
