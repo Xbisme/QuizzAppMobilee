@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/feedback"
+        android:icon="@drawable/game_controller"
+        android:title="@string/feedback" />
+    <item
+        android:id="@+id/information"
+        android:title="@string/information"
+        android:icon="@drawable/history"
+        />
+</menu>

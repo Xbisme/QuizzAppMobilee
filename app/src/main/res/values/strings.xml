@@ -19,4 +19,13 @@
     <string name="share">Chia sẻ thành tích</string>
     <string name="result_first">Bạn đã trả lời đúng</string>
     <string name="question">câu hỏi</string>
+    <string name="feedback">Góp ý</string>
+    <string name="information">Thông tin trò chơi</string>
+    <string name="group">Nhóm phát triển:</string>
+    <string name="member1">- Cao Xuân Bình</string>
+    <string name="member2">- Nguyễn Minh Tâm</string>
+    <string name="contact">Thông tin liên hệ:</string>
+    <string name="emailContact">- 20021493@vnu.edu.vn</string>
+    <string name="or">or</string>
+    <string name="emailContact2">- 20021580@vnu.edu.vn</string>
 </resources>
