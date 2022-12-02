@@ -60,7 +60,7 @@ public class Answer extends Fragment implements View.OnClickListener {
         checkPoint(button);
         if(currentQues == 4) {
             viewModel.setScore(score);
-            Navigation.findNavController(button).navigate(R.id.action_answer_to_result);
+            Navigation.findNavController(button).navigate(R.id.action_answer_to_result2);
         }
         else
             switchQuestion();

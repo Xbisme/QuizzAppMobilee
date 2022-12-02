@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:orientation="vertical"
     android:gravity="center"
     tools:context=".Fragment.Result">
@@ -35,21 +34,22 @@
         android:textSize="50sp"
         android:textColor="@color/black"
         android:fontFamily="sans-serif-condensed"/>
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/finish"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/finish"
-        android:background="@drawable/shape_button"
-        android:layout_marginBottom="15dp"
-        android:textAlignment="center"
-        android:paddingHorizontal="75dp"
-        android:paddingVertical="25dp"
-        android:textSize="20sp"
-        android:fontFamily="sans-serif-black"
-        android:textAllCaps="false"
-        android:textColor="@color/kelly_blue"
-        />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/finish"
+            android:background="@drawable/shape_button"
+            android:layout_marginVertical="15dp"
+            android:textAlignment="center"
+            android:paddingHorizontal="75dp"
+            android:paddingVertical="25dp"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-black"
+            android:textAllCaps="false"
+            />
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/share"
@@ -64,7 +64,6 @@
         android:textSize="20sp"
         android:fontFamily="sans-serif-black"
         android:textAllCaps="false"
-        android:textColor="@color/kelly_blue"
         />
 
 </LinearLayout>

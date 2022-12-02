@@ -17,7 +17,6 @@
         android:gravity="center"
         android:text="@string/choose_level"
         android:fontFamily="sans-serif-condensed-light"
-        android:textColor="@color/black"
         />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -34,7 +33,6 @@
         android:textSize="20sp"
         android:fontFamily="sans-serif-black"
         android:textAllCaps="false"
-        android:textColor="@color/kelly_blue"
         />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -51,7 +49,6 @@
         android:textSize="20sp"
         android:fontFamily="sans-serif-black"
         android:textAllCaps="false"
-        android:textColor="@color/kelly_blue"
         />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -68,6 +65,5 @@
         android:textSize="20sp"
         android:fontFamily="sans-serif-black"
         android:textAllCaps="false"
-        android:textColor="@color/kelly_blue"
         />
 </LinearLayout>

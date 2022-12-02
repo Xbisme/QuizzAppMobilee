@@ -9,20 +9,30 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.xbisme.quizzapp.DataBase.HistoryData;
+import com.xbisme.quizzapp.DataBase.HistoryDataBase;
+import com.xbisme.quizzapp.DataBase.ItemDAO;
+import com.xbisme.quizzapp.Fragment.Adapter.HistoryAdapter;
 import com.xbisme.quizzapp.MainActivity;
 import com.xbisme.quizzapp.R;
 import com.xbisme.quizzapp.ViewModel.Topic_Level_ViewModel;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 
 public class Result extends Fragment {
     private Topic_Level_ViewModel viewModel;
-    private Integer score;
     private AppCompatButton finish;
     private AppCompatButton share;
     private TextView textView;
@@ -33,6 +43,7 @@ public class Result extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_result, container, false);
     }
+
     @Override
     public void onViewCreated(@NonNull View v, @Nullable Bundle saveInstanceState) {
         super.onViewCreated(v,saveInstanceState);
@@ -47,6 +58,16 @@ public class Result extends Fragment {
         finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                HistoryDataBase dataBase = Room.databaseBuilder(requireContext(),HistoryDataBase.class,"mydb").allowMainThreadQueries().build();
+                ItemDAO itemDAO = dataBase.getItemDAO();
+                HistoryData historyData = new HistoryData();
+                historyData.setTopic(MainActivity.getTopic());
+                historyData.setScore(MainActivity.getScore().toString().trim());
+                historyData.setLevel(MainActivity.getLevel());
+                DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                Calendar calendar = Calendar.getInstance();
+                historyData.setDate(dateFormat.format(calendar.getTime()));
+                itemDAO.insert(historyData);
                 Navigation.findNavController(finish).navigate(R.id.action_result_to_chooseTopic);
             }
         });

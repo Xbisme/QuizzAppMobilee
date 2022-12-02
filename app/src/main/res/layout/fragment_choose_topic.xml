@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.ChooseTopic"
     android:orientation="vertical"
-    android:background="@color/white"
     >
 
     <TextView
@@ -18,7 +17,6 @@
         android:gravity="center"
         android:text="@string/choose_topic"
         android:fontFamily="sans-serif-condensed-light"
-        android:textColor="@color/black"
         />
 
     <ScrollView
@@ -26,7 +24,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:background="@color/white"
         tools:context=".Fragment.Topic_Question">
 
         <androidx.cardview.widget.CardView
@@ -39,7 +36,6 @@
                 android:id="@+id/linear_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -56,7 +52,6 @@
                     android:textSize="20sp"
                     android:fontFamily="sans-serif-black"
                     android:textAllCaps="false"
-                    android:textColor="@color/kelly_blue"
                     />
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -73,7 +68,6 @@
                     android:textSize="20sp"
                     android:fontFamily="sans-serif-black"
                     android:textAllCaps="false"
-                    android:textColor="@color/kelly_blue"
                     />
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -90,7 +84,6 @@
                     android:textSize="20sp"
                     android:fontFamily="sans-serif-black"
                     android:textAllCaps="false"
-                    android:textColor="@color/kelly_blue"
                     />
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -107,7 +100,6 @@
                     android:textSize="20sp"
                     android:fontFamily="sans-serif-black"
                     android:textAllCaps="false"
-                    android:textColor="@color/kelly_blue"
                     />
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -124,7 +116,6 @@
                     android:textSize="20sp"
                     android:fontFamily="sans-serif-black"
                     android:textAllCaps="false"
-                    android:textColor="@color/kelly_blue"
                     />
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/topic6"
@@ -140,7 +131,6 @@
                     android:textSize="20sp"
                     android:fontFamily="sans-serif-black"
                     android:textAllCaps="false"
-                    android:textColor="@color/kelly_blue"
                     />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
