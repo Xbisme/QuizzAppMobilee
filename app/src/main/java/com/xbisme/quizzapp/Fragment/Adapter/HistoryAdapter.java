@@ -23,6 +23,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         this.historyList = historyList;
     }
 
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -30,7 +31,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
             View view = inflater.inflate(R.layout.item,parent,false);
         return new ViewHolder(view);
     }
-
+// holder view
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         HistoryData historyDataBase = historyList.get(position);
@@ -42,10 +43,10 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return 0;
+        return historyList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
             TextView topic,level,score,date;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

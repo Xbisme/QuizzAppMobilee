@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.ChooseLevel"
     android:orientation="vertical"
-    android:background="@color/white">
+  >
 
     <TextView
         android:id="@+id/textview_main_level"

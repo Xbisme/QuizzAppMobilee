@@ -1,6 +1,10 @@
 package com.xbisme.quizzapp.Fragment;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -8,11 +12,6 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.xbisme.quizzapp.R;
 import com.xbisme.quizzapp.ViewModel.Topic_Level_ViewModel;
@@ -30,9 +29,8 @@ public class ChooseTopic extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_choose_topic, container, false);
 
-        return v;
+        return inflater.inflate(R.layout.fragment_choose_topic, container, false);
     }
     @Override
     public void onViewCreated(@NonNull View v, @Nullable Bundle saveInstanceState) {

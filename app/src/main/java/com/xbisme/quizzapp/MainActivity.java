@@ -1,23 +1,21 @@
 package com.xbisme.quizzapp;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
-import androidx.appcompat.widget.Toolbar;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProvider;
-
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.xbisme.quizzapp.Fragment.Information;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.xbisme.quizzapp.ViewModel.Topic_Level_ViewModel;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,75 +23,87 @@ public class MainActivity extends AppCompatActivity {
     private static String topic;
     private static String level;
     private static Integer score;
-    private Information information;
+    private MediaPlayer mediaPlayer;
+    private Toolbar toolbar;
+    private Menu menu;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_host,menu);
+        inflater.inflate(R.menu.menu_host, menu);
+        this.menu = menu;
         return super.onCreateOptionsMenu(menu);
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         viewModel = new ViewModelProvider(this).get(Topic_Level_ViewModel.class);
 
-        viewModel.getTopic().observe(this,item -> {
+        viewModel.getTopic().observe(this, item -> {
             setTopic(item);
         });
-        viewModel.getLevel().observe(this,item -> {
+        viewModel.getLevel().observe(this, item -> {
             setLevel(item);
         });
-        viewModel.getScore().observe(this,item-> {
+        viewModel.getScore().observe(this, item -> {
             setScore(item);
         });
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        //set up music background;
+        mediaPlayer = MediaPlayer.create(this, R.raw.background_music);
+        mediaPlayer.setLooping(true);
+        mediaPlayer.start();
+        // set up toolbar
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                    switch (item.getItemId() ) {
-                        case R.id.feedback:
-                            Intent intent;
-                            intent = new Intent();
-                            intent.setAction(Intent.ACTION_SENDTO);
-                            intent.setData(Uri.parse("mailto:20021493@vnu.edu.vn"));
-                            intent.putExtra(Intent.EXTRA_EMAIL,"caoxuanbinhcne0403@gmail.com" );
-                            intent.putExtra(Intent.EXTRA_SUBJECT,"Góp ý ứng dụng QuizzApp");
-                            startActivity(intent);
-                            return  true;
-                        case R.id.information:
-//                            information = new Information();
-//                            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//                            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_MATCH_ACTIVITY_CLOSE);
-//                            ft.replace(R.id.content_frame,information);
-//                            ft.addToBackStack(null);
-//                            ft.commit();
-//                            return true;
-                            AlertDialog.Builder b = new AlertDialog.Builder(MainActivity.this);
-                            b.setTitle("About us");
-                            b.setMessage("Cao Xuân Bình - 20021493\n" +
-                                    "Nguyễn Minh Tâm - 20021580\n" +
-                                    "Đề tài: QuizzApp thuộc học phần Lập trình cho thiết bị di động \n" +
-                                    "Contact us\n" +
-                                    "20021493@edu.vnu.vn\n" +
-                                    "or\n" +
-                                    "20021580@edu.vnu.vn");
-                            b.setNegativeButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.cancel();
-                                }
-                            });
-                            //Tạo Dialog
-                            AlertDialog al = b.create();
-                            //Hiển thị
-                            al.show();
-                            break;
+                switch (item.getItemId()) {
+                    case R.id.feedback:
+                        Intent intent;
+                        intent = new Intent();
+                        intent.setAction(Intent.ACTION_SENDTO);
+                        intent.setData(Uri.parse("mailto:20021493@vnu.edu.vn"));
+                        intent.putExtra(Intent.EXTRA_EMAIL, "caoxuanbinhcne0403@gmail.com");
+                        intent.putExtra(Intent.EXTRA_SUBJECT, "Góp ý ứng dụng QuizzApp");
+                        startActivity(intent);
+                        return true;
+                    case R.id.aboutUs1:
+                        NavController navController = Navigation.findNavController(MainActivity.this, R.id.fragmentContainerView);
+                        navController.navigate(R.id.action_global_aboutUs);
+                        return true;
+                    case R.id.UnMute:
+                        menu.getItem(2).setVisible(false);
+                        menu.getItem(3).setVisible(true);
+                        mediaPlayer.pause();
+                        return true;
+                    case R.id.Mute:
+                        menu.getItem(2).setVisible(true);
+                        menu.getItem(3).setVisible(false);
+                        mediaPlayer.start();
+                        return true;
+                }
+                return false;
+            }
+
+
+        });
+        // set up bottom navigation
+        bottomNavigationView = findViewById(R.id.bottom_menu);
+        bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                NavController navController = Navigation.findNavController(MainActivity.this, R.id.fragmentContainerView);
+                switch (item.getItemId()) {
+                    case R.id.play_btn:
+                        navController.navigate(R.id.action_global_chooseTopic);
+                        return true;
+                    case R.id.history_btn:
+                        navController.navigate(R.id.action_global_history);
+                        return true;
                 }
                 return false;
             }
@@ -101,31 +111,63 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public static String getTopic() {
-        return topic;
-    }
+    @Override
+        protected void onStart () {
+            super.onStart();
+        }
 
-    public void setTopic(String topic) {
-        this.topic = topic;
-    }
+        @Override
+        protected void onStop () {
+            super.onStop();
+        }
 
-    public static String getLevel() {
-        return level;
-    }
+        @Override
+        protected void onDestroy () {
+            super.onDestroy();
+            mediaPlayer.stop();
+            mediaPlayer.release();
+        }
 
-    public void setLevel(String level) {
-        this.level = level;
-    }
+        @Override
+        protected void onPause () {
+            super.onPause();
+            mediaPlayer.pause();
+        }
 
-    public static Integer getScore() {
-        return score;
-    }
+        @Override
+        protected void onResume () {
+            super.onResume();
+            mediaPlayer.start();
+        }
 
-    public void setScore(Integer score) {
-        this.score = score;
-    }
+        @Override
+        protected void onRestart () {
+            super.onRestart();
+        }
 
-    public void setOnDataListener(Information information) {
-        this.information = information;
+        public static String getTopic () {
+            return topic;
+        }
+
+        public void setTopic (String topic){
+            this.topic = topic;
+        }
+
+        public static String getLevel () {
+            return level;
+        }
+
+        public void setLevel (String level){
+            this.level = level;
+        }
+
+        public static Integer getScore () {
+            return score;
+        }
+
+        public void setScore (Integer score){
+            this.score = score;
+        }
+
+
     }
-}

@@ -13,9 +13,6 @@
         <action
             android:id="@+id/action_chooseTopic_to_chooseLevel"
             app:destination="@id/chooseLevel" />
-        <action
-            android:id="@+id/action_chooseTopic_to_information22"
-            app:destination="@id/information2" />
     </fragment>
     <fragment
         android:id="@+id/chooseLevel"
@@ -25,9 +22,6 @@
         <action
             android:id="@+id/action_chooseLevel_to_answer"
             app:destination="@id/answer" />
-        <action
-            android:id="@+id/action_chooseLevel_to_information22"
-            app:destination="@id/information2" />
     </fragment>
     <fragment
         android:id="@+id/answer"
@@ -37,9 +31,6 @@
         <action
             android:id="@+id/action_answer_to_result"
             app:destination="@id/result" />
-        <action
-            android:id="@+id/action_answer_to_information22"
-            app:destination="@id/information2" />
     </fragment>
     <fragment
         android:id="@+id/result"
@@ -49,13 +40,24 @@
         <action
             android:id="@+id/action_result_to_chooseTopic"
             app:destination="@id/chooseTopic" />
-        <action
-            android:id="@+id/action_result_to_information22"
-            app:destination="@id/information2" />
     </fragment>
     <fragment
-        android:id="@+id/information2"
-        android:name="com.xbisme.quizzapp.Fragment.Information"
-        android:label="fragment_information"
-        tools:layout="@layout/fragment_information" />
+        android:id="@+id/aboutUs1"
+        android:name="com.xbisme.quizzapp.Fragment.AboutUs"
+        android:label="fragment_about_us"
+        tools:layout="@layout/fragment_about_us" />
+    <action
+        android:id="@+id/action_global_aboutUs"
+        app:destination="@id/aboutUs1" />
+    <fragment
+        android:id="@+id/history"
+        android:name="com.xbisme.quizzapp.Fragment.History"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
+    <action
+        android:id="@+id/action_global_chooseTopic"
+        app:destination="@id/chooseTopic" />
+    <action
+        android:id="@+id/action_global_history"
+        app:destination="@id/history" />
 </navigation>

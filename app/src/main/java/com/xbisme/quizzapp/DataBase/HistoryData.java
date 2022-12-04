@@ -1,6 +1,5 @@
 package com.xbisme.quizzapp.DataBase;
 
-import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -46,16 +45,11 @@ public class HistoryData {
     }
 
     public String getScore() {
-        return score;
+        return score + "/5";
     }
 
     public void setScore(String score) {
         this.score = score;
     }
-//    @NonNull
-//    @Override
-//    public String toString () {
-//
-//        return getTopic() + "\n" + getLevel() + "\n" + getDate();
-//    }
+
 }
