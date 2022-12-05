@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
-import com.xbisme.quizzapp.MainActivity;
+import com.xbisme.quizzapp.Activity.MainActivity;
 import com.xbisme.quizzapp.Question.AndroidQues;
 import com.xbisme.quizzapp.Question.AnimeQues;
 import com.xbisme.quizzapp.Question.DocumentaryQues;
@@ -68,32 +68,32 @@ public class Answer extends Fragment implements View.OnClickListener {
         switch (MainActivity.getTopic()) {
             case "Game":
                 if (MainActivity.getLevel().equals("Dễ")) textView.setText(GameQues.easy_question[currentQues]);
-                if (MainActivity.getLevel().equals("Trung Bình")) textView.setText(GameQues.normal_question[currentQues]);
+                else if (MainActivity.getLevel().equals("Trung Bình")) textView.setText(GameQues.normal_question[currentQues]);
                 else textView.setText(GameQues.hard_question[currentQues]);
                 break;
             case "Anime":
                 if (MainActivity.getLevel().equals("Dễ") ) textView.setText(AnimeQues.easy_question[currentQues]);
-                if (MainActivity.getLevel().equals("Trung Bình")) textView.setText(AnimeQues.normal_question[currentQues]);
+                else if (MainActivity.getLevel().equals("Trung Bình")) textView.setText(AnimeQues.normal_question[currentQues]);
                 else textView.setText(AnimeQues.hard_question[currentQues]);
                 break;
             case "Film":
                 if (MainActivity.getLevel().equals("Dễ") ) textView.setText(FilmQues.easy_question[currentQues]);
-                if (MainActivity.getLevel().equals("Trung Bình")) textView.setText(FilmQues.normal_question[currentQues]);
+                else if (MainActivity.getLevel().equals("Trung Bình")) textView.setText(FilmQues.normal_question[currentQues]);
                 else textView.setText(FilmQues.hard_question[currentQues]);
                 break;
             case "Documentary":
                 if (MainActivity.getLevel().equals("Dễ") ) textView.setText(DocumentaryQues.easy_question[currentQues]);
-                if (MainActivity.getLevel().equals("Trung Bình")) textView.setText(DocumentaryQues.normal_question[currentQues]);
+                else if (MainActivity.getLevel().equals("Trung Bình")) textView.setText(DocumentaryQues.normal_question[currentQues]);
                 else textView.setText(DocumentaryQues.hard_question[currentQues]);
                 break;
             case "Android":
                 if (MainActivity.getLevel().equals("Dễ")) textView.setText(AndroidQues.easy_question[currentQues]);
-                if (MainActivity.getLevel().equals("Trung Bình")) textView.setText(AndroidQues.normal_question[currentQues]);
+                else if (MainActivity.getLevel().equals("Trung Bình")) textView.setText(AndroidQues.normal_question[currentQues]);
                 else textView.setText(AndroidQues.hard_question[currentQues]);
                 break;
             case "Ios":
                 if (MainActivity.getLevel().equals("Dễ") ) textView.setText(IosQues.easy_question[currentQues]);
-                if (MainActivity.getLevel().equals("Trung Bình")) textView.setText(IosQues.normal_question[currentQues]);
+                else if (MainActivity.getLevel().equals("Trung Bình")) textView.setText(IosQues.normal_question[currentQues]);
                 else textView.setText(IosQues.hard_question[currentQues]);
                 break;
         }

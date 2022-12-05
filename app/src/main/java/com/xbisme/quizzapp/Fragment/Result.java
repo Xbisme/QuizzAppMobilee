@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,10 +16,10 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.room.Room;
 
+import com.xbisme.quizzapp.Activity.MainActivity;
 import com.xbisme.quizzapp.DataBase.HistoryData;
 import com.xbisme.quizzapp.DataBase.HistoryDataBase;
 import com.xbisme.quizzapp.DataBase.ItemDAO;
-import com.xbisme.quizzapp.MainActivity;
 import com.xbisme.quizzapp.R;
 import com.xbisme.quizzapp.ViewModel.Topic_Level_ViewModel;
 
@@ -61,13 +60,12 @@ public class Result extends Fragment {
                 ItemDAO itemDAO = dataBase.getItemDAO();
                 HistoryData historyData = new HistoryData();
                 historyData.setTopic(MainActivity.getTopic());
-                historyData.setScore(MainActivity.getScore().toString().trim());
+                historyData.setScore(MainActivity.getScore().toString() + "/5");
                 historyData.setLevel(MainActivity.getLevel());
                 DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
                 Calendar calendar = Calendar.getInstance();
                 historyData.setDate(dateFormat.format(calendar.getTime()));
                 itemDAO.insert(historyData);
-                Toast.makeText(getContext(),"add success",Toast.LENGTH_LONG).show();
                 Navigation.findNavController(finish).navigate(R.id.action_result_to_chooseTopic);
             }
         });

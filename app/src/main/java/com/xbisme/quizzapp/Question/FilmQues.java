@@ -3,11 +3,11 @@ package com.xbisme.quizzapp.Question;
 public class FilmQues {
 
         public static String[] easy_question = {
-                "Minh Tâm rất gà có đúng không?",
-                "Minh Đức là em Minh Tâm đúng không?",
-                "Hà Việt Dũng chỉ là 1 con gà có đúng không?",
-                "Cao Xuân Bình đẹp zai nhất phòng 403 đúng không?",
-                "Top 1 rank thách đấu Việt Nam là Cao Xuân Bình có đúng không"
+                "Tom Holland là diễn viên thủ vai Spider Man trong Avengers Endgame",
+                "SuperMan là một trong số những siêu anh hùng thuộc nhà Marvel",
+                "Avengers Endgame là bộ film mang lại doanh thu lớn nhất cho Marvel",
+                "Andrew Garfield là diễn viên thủ vai Spider Man đầu tiên",
+                "Spider Man Noway Home là phần film mới nhất của SpiderMan"
         };
         public static String[] easy_correctAnswer= {
                 "Đúng",
@@ -17,29 +17,29 @@ public class FilmQues {
                 "Đúng"
         };
         public static String[] normal_question = {
-                "Minh Tâm rất gà có đúng không?",
-                "Minh Đức là em Minh Tâm đúng không?",
-                "Hà Việt Dũng chỉ là 1 con gà có đúng không?",
-                "Cao Xuân Bình đẹp zai nhất phòng 403 đúng không?",
-                "Top 1 rank thách đấu Việt Nam là Cao Xuân Bình có đúng không"
+                "Severus Tobias Snape là giáo sư dạy môn phòng chống nghệ thuật hắc ám",
+                "Tác giả của Harry Potter là J.K.Rowling",
+                "Người sở hữu cây đũa phép cơm nguội là Voldermort",
+                "Trong cuộc thi Cúp Tam Thuật, Harry Potter đã đánh bại Voldermort bằng đũa phép cơm nguội ",
+                "Albus Percival Wulfric Brian Dumbledore là phù thủy vỹ đại nhất bộ film Harry Potter"
         };
         public static String[] normal_correctAnswer ={
-                "Đúng",
                 "Sai",
                 "Đúng",
+                "Sai",
                 "Sai",
                 "Đúng"
         };
         public static String[] hard_question = {
-                "Minh Tâm rất gà có đúng không?",
-                "Minh Đức là em Minh Tâm đúng không?",
-                "Hà Việt Dũng chỉ là 1 con gà có đúng không?",
-                "Cao Xuân Bình đẹp zai nhất phòng 403 đúng không?",
-                "Top 1 rank thách đấu Việt Nam là Cao Xuân Bình có đúng không"
+                "Avatar là bộ film có doanh thu cao nhất thế giới",
+                "Cướp biển vùng Caribbean 4: Dòng chảy lạ có kinh phí đầu tư lớn nhất thế giới",
+                "Marvel Studios chính là công ty sáng tạo ra vũ trụ điện ảnh Marvel",
+                "Robert Downey Jr. là diễn viên thủ vai Spider Man",
+                "Trong Avengers Endgame Iron Man đã hy sinh tính mạng để sử dụng đá vô cực cứu thể giới "
         };
         public static String[] hard_correctAnswer = {
                 "Đúng",
-                "Sai",
+                "Đúng",
                 "Đúng",
                 "Sai",
                 "Đúng"

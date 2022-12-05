@@ -45,7 +45,7 @@ public class HistoryData {
     }
 
     public String getScore() {
-        return score + "/5";
+        return score;
     }
 
     public void setScore(String score) {

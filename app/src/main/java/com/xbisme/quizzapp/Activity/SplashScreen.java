@@ -1,4 +1,4 @@
-package com.xbisme.quizzapp;
+package com.xbisme.quizzapp.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.os.Handler;
 import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.xbisme.quizzapp.R;
 
 public class SplashScreen extends AppCompatActivity {
     private static final int SPLASH_SCREEN_TIME_OUT = 2000;
@@ -26,7 +28,7 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
 
                 Intent intent = new
-                        Intent(SplashScreen.this,MainActivity.class);
+                        Intent(SplashScreen.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
