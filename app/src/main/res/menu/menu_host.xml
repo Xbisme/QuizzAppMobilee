@@ -4,17 +4,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/feedback"
-        android:icon="@drawable/game_controller"
         android:title="@string/feedback" />
     <item
         android:id="@+id/aboutUs1"
         android:title="@string/information"
-        android:icon="@drawable/history"
         />
     <item
         android:id="@+id/UnMute"
         android:icon="@drawable/un_mute"
-        android:title="Mute"
+        android:title="UnMute"
         android:visible="true"
         app:showAsAction="always"
         />
@@ -23,6 +21,6 @@
         android:icon="@drawable/mute"
         android:title="Mute"
         android:visible="false"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         />
 </menu>

@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     tools:context=".Fragment.Answer">
 
     <TextView
@@ -37,17 +36,16 @@
         android:id="@+id/False"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_button"
         android:layout_below="@+id/True"
-        android:textAlignment="viewStart"
-        android:text="@string/False"
+        android:background="@drawable/shape_button"
         android:drawableEnd="@drawable/falsetick"
+        android:fontFamily="sans-serif-black"
         android:paddingHorizontal="50dp"
         android:paddingVertical="25dp"
-        android:textSize="20sp"
-        android:fontFamily="sans-serif-black"
+        android:text="@string/False"
+        android:textAlignment="viewStart"
         android:textAllCaps="false"
-        />
+        android:textSize="20sp" />
     <ProgressBar
         android:id="@+id/progress_bar"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"

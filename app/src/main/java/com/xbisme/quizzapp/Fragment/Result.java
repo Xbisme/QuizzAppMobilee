@@ -71,7 +71,6 @@ public class Result extends Fragment {
         });
         share.setOnClickListener(view -> {
             Intent send_intent = new Intent(Intent.ACTION_SEND);
-            System.out.println(share_text);
             send_intent.putExtra(Intent.EXTRA_TEXT,share_text);
             send_intent.setType("text/plain");
             Intent shareIntent = Intent.createChooser(send_intent,null);
